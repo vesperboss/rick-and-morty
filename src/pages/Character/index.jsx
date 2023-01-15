@@ -5,6 +5,7 @@ import { FixedSizeList } from 'react-window';
 
 function renderRow(props) {
   const { index, style } = props;
+  console.log()
   return (
     <ListItem key={`episode-${index}`} style={style} component="div" disablePadding>
       <ListItemButton>
