@@ -3,17 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Card, CardMedia, CardContent, Typography, Container, Box, ListItem, ListItemButton, ListItemText } from '@mui/material'
 import { FixedSizeList } from 'react-window';
 
-function renderRow(props) {
-  const { index, style } = props;
-  console.log()
-  return (
-    <ListItem key={`episode-${index}`} style={style} component="div" disablePadding>
-      <ListItemButton>
-        <ListItemText primary={`Episode: ${index + 1}`} />
-      </ListItemButton>
-    </ListItem>
-  );
-}
+
 
 export const Character = () => {
   const { id } = useParams()
@@ -23,6 +13,18 @@ export const Character = () => {
       .then(response => response.json())
       .then(data => setCharacterInfo(data))
   }, [id])
+
+  function renderRow(props) {
+    const { index, style } = props;
+    const episod = characterInfo.episode[index].replace('https://rickandmortyapi.com/api/episode/', 'Episode: ')
+    return (
+      <ListItem key={`episode-${index}`} style={style} component="div" disablePadding>
+        <ListItemButton>
+          <ListItemText primary={episod} />
+        </ListItemButton>
+      </ListItem>
+    );
+  }
 
   return (
     <Container>

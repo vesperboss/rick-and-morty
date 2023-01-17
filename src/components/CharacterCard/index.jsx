@@ -5,8 +5,14 @@ import { useNavigate } from 'react-router-dom'
 export const CharacterCard = ({ name, species, image, id }) => {
     const navigate = useNavigate()
     return (
-        <Grid item xs={3} >
-            <Card sx={{ maxWidth: 340, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+        <Grid item xs={12} sm={6} md={4} lg={3} sx={{ display: 'flex', justifyContent: 'center' }}>
+            <Card sx={{
+                maxWidth: 340,
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+            }}>
                 <CardMedia
                     sx={{ height: 240, }}
                     image={image}
@@ -21,7 +27,7 @@ export const CharacterCard = ({ name, species, image, id }) => {
                     </Typography>
                 </CardContent>
                 <CardActions >
-                    <Button onClick={() => navigate(`/character/${id}`)} size="small" >Info</Button>
+                    <Button sx={{ width: 340, }} variant="outlined" onClick={() => navigate(`/character/${id}`)} size="small" >Info</Button>
                 </CardActions>
             </Card>
         </Grid>

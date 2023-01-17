@@ -1,7 +1,8 @@
-import { Grid, Pagination, Stack, Container } from '@mui/material'
+import { Grid, Pagination, Stack, Container, } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { CharacterCard } from '../../components/CharacterCard'
 import { Menu } from '../../components/Menu'
+
 
 
 export const Home = () => {
@@ -9,8 +10,8 @@ export const Home = () => {
     const [page, setPage] = useState(1)
     const [pageQty, setPageQty] = useState(1)
     const [categoryId, setCategoryId] = useState('')
- 
-    useEffect(() => {      
+
+    useEffect(() => {
         let url = `https://rickandmortyapi.com/api/character/?page=${page}`
         if (categoryId !== 'all') {
             url += `&species=${categoryId}`
@@ -22,11 +23,12 @@ export const Home = () => {
                 setPageQty(data.info.pages);
             })
     }, [page, categoryId])
-    
+
     const handleChangeCategory = (category) => {
         setCategoryId(category);
         setPage(1)
     }
+
 
     return (
         <div>
@@ -41,11 +43,11 @@ export const Home = () => {
                     sx={{ marginX: 'auto' }} />
             </Stack>
 
-            <Container sx={{ mt: '1rem', mb: '1rem' }}>
-                <Grid container spacing={2} sx={{ alignItems: 'stretch' }}>
+            <Container sx={{ mt: '1rem', mb: '1rem', }} >
+                <Grid container spacing={2} sx={{ alignItems: 'stretch',  }}>
                     {character.map((obj) => <CharacterCard key={obj.id} {...obj} />)}
                 </Grid>
-            </Container>
+            </Container> 
 
             <Stack spacing={2}>
                 <Pagination
@@ -57,3 +59,4 @@ export const Home = () => {
         </div>
     )
 }
+
