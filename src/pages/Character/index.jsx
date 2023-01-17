@@ -44,7 +44,7 @@ export const Character = () => {
             </Typography>
 
             <Box
-              sx={{ width: '100%', height: 200, maxWidth: 360, bgcolor: 'background.paper', border: 'solid 1px black', mt: 2 }}
+              sx={{ width: '100%', height: 200, maxWidth: 360, bgcolor: 'background.paper',  mt: 2, boxShadow: '0px 7px 19px -4px rgba(0,0,0,0.65)' }}
             >
               <FixedSizeList
                 height={200}
